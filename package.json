@@ -1,0 +1,24 @@
+{
+  "name": "skip-ci",
+  "version": "1.0.0",
+  "description": "A GitHub action to skip CI when the commit message contains [skip ci] (or another RegEx pattern)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Legorooj/skip-ci.git"
+  },
+  "author": "Legorooj",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Legorooj/skip-ci/issues"
+  },
+  "homepage": "https://github.com/Legorooj/skip-ci#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/rest": "^18.0.7"
+  }
+}
