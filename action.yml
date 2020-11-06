@@ -1,0 +1,17 @@
+name: 'Skip CI'
+description: 'A GitHub action to skip CI when the commit message contains [skip ci] (or another RegEx pattern)'
+inputs:
+    pattern:
+        description: 'The RegEx pattern to search the commit message for'
+        required: true
+        default: '(skip[\s\-]ci|ci[\s\-]skip)'
+    token:
+        description: 'The GitHub token used to authenticate requests to the GitHub API.'
+        required: true
+        default: '{{ github.GITHUB_TOKEN }}'
+outputs:
+    canSkip:
+        description: 'Whether or not your action should skip'
+runs:
+    using: 'node12'
+    main: 'index.js'
