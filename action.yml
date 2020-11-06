@@ -8,7 +8,7 @@ inputs:
     token:
         description: 'The GitHub token used to authenticate requests to the GitHub API.'
         required: true
-        default: '{{ github.GITHUB_TOKEN }}'
+        default: '{{ github.token }}'
 outputs:
     canSkip:
         description: 'Whether or not your action should skip'
