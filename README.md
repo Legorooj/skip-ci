@@ -67,3 +67,7 @@ steps:
     name: Hello world!
     run: echo Hello, world!
 ```
+
+## Credits
+
+* [@BoboTiG](https://github.com/BoboTiG) inspired me to write this. Thanks! 
