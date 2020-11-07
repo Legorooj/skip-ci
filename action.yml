@@ -4,7 +4,7 @@ inputs:
     pattern:
         description: 'The RegEx pattern to search the commit message for'
         required: true
-        default: '(skip[\s\-]ci|ci[\s\-]skip)'
+        default: '(\[skip[\s\-](ci|actions|ga)|(ci|actions|ga)[\s\-]skip\])'
     token:
         description: 'The GitHub token used to authenticate requests to the GitHub API.'
         required: true
