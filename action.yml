@@ -1,4 +1,5 @@
 name: 'Skip CI'
+author: 'Legorooj'
 description: 'A GitHub action to skip CI when the commit message contains [skip ci] (or another RegEx pattern)'
 inputs:
     pattern:
