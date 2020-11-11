@@ -21,26 +21,26 @@ async function main() {
     const octokit = github.getOctokit(token);
     
     // Fetch the workflow run object
-    const { data: current_run } = octokit.actions.getWorkflowRun(
+    octokit.actions.getWorkflowRun(
         {
             owner: github.context.repo.owner, 
             repo: github.context.repo.repo,
             run_id: github.context.runId
         }
-    );
+    ).then(action => {
+        // Extract the commit message from the commit which triggered the workflow run
+        const commit_message = action.head_commit.message;
 
-    // Extract the commit message from the commit which triggered the workflow run
-    const commit_message = current_run.head_commit.message;
-
-    // And check for the pattern.
-    let match = commit_message.search(re);
-    if (match) {
-        core.setOutput("canSkip", "true");
-        console.log(`Skipping; match found: ${match}`)
-    } else {
-        core.setOutput("canSkip", "false")
-        console.log("Not skipping, no match found.")
-    }
+        // And check for the pattern.
+        let match = commit_message.search(re);
+        if (match) {
+            core.setOutput("canSkip", "true");
+            console.log(`Skipping; match found: ${match}`)
+        } else {
+            core.setOutput("canSkip", "false")
+            console.log("Not skipping, no match found.")
+        }
+    }).catch(e => core.setFailed(e.message));
 }
 
 try{
