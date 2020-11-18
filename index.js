@@ -28,6 +28,9 @@ async function main() {
             run_id: github.context.runId
         }
     ).then(action => {
+        // Log the data to the console for debugging.
+        console.log(action);
+
         // Extract the commit message from the commit which triggered the workflow run
         const commit_message = action.head_commit.message;
 
@@ -40,7 +43,10 @@ async function main() {
             core.setOutput("canSkip", "false")
             console.log("Not skipping, no match found.")
         }
-    }).catch(e => core.setFailed(e.message));
+    }).catch(e => {
+        console.log(e);
+        core.setFailed(e.message);
+    });
 }
 
 try{
