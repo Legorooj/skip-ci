@@ -32,7 +32,7 @@ async function main() {
         console.log(action);
 
         // Extract the commit message from the commit which triggered the workflow run
-        const commit_message = action.head_commit.message;
+        const commit_message = action.data.head_commit.message;
 
         // And check for the pattern.
         let match = commit_message.search(re);
