@@ -36,7 +36,7 @@ async function main() {
 
         // And check for the pattern.
         let match = commit_message.search(re);
-        if (match != 0) {
+        if (match != -1) {
             core.setOutput("canSkip", "true");
             console.log(`Skipping; match found: ${match}`)
         } else {
