@@ -16,5 +16,5 @@ outputs:
     canSkip:
         description: 'Whether or not your action should skip'
 runs:
-    using: 'node12'
+    using: 'node16'
     main: 'index.js'
