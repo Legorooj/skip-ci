@@ -16,7 +16,7 @@ The RegEx pattern which the commit message is searched for.
 
 The default pattern will match `[skip <KEYWORD>]` or `[<KEYWORD> skip]`, where `KEYWORD` is one of `actions`, `ga`, or `ci`. It will also match if there is a hyphen (`-`) between `KEYWORD` and `skip`.
 
-Please note that only the `HEAD` commit will be checked for this pattern.
+Only the `HEAD` commit will be checked for this pattern.
 
 
 ## Outputs
