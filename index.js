@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Legorooj. 
+// Copyright (c) 2023 Jasper Harrison.
 // This file is licensed under the terms of the Apache License, version 2.0
 const core = require("@actions/core");
 const github = require("@actions/github");
@@ -28,13 +28,12 @@ async function main() {
             run_id: github.context.runId
         }
     ).then(action => {
-
         // Extract the commit message from the commit which triggered the workflow run
         const commit_message = action.data.head_commit.message;
 
         // And check for the pattern.
         let match = commit_message.search(re);
-        if (match != -1) {
+        if (match !== -1) {
             core.setOutput("canSkip", "true");
             console.log(`Skipping; match found: ${match}`)
         } else {
@@ -47,8 +46,5 @@ async function main() {
     });
 }
 
-try{
-    main();
-} catch (e) {
-    core.setFailed(e.message)
-}
+
+main().catch((e) => core.setFailed(e.message))
